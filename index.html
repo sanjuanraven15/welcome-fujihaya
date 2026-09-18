@@ -78,6 +78,15 @@ body{
 /* ---------- Background layers ---------- */
 .layer{position:absolute;top:0;right:0;bottom:0;left:0;inset:0;pointer-events:none}
 
+/* Photo backdrop: sits under every other layer, blended to the blue so it
+   reads as texture rather than a competing image. */
+.photo{
+  background:url(background.jpg) center center / cover no-repeat;
+  opacity:.16;
+  mix-blend-mode:luminosity;
+  filter:saturate(.7);
+}
+
 .grid{
   background-image:
     linear-gradient(rgba(96,125,139,.16) 1px,transparent 1px),
@@ -382,6 +391,7 @@ h1{
   <section class="banner" id="banner" aria-label="Welcome to Fuji-Haya Electric">
 
     <!-- background stack -->
+    <div class="layer photo"></div>
     <div class="layer grid"></div>
     <span class="glow-a"></span>
     <span class="glow-b"></span>
